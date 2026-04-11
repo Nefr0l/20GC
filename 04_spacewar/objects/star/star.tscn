@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b6j1q33aofdaj"]
+
+[ext_resource type="Texture2D" uid="uid://631qjocradf3" path="res://art/star.svg" id="1_vhy3k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vhy3k"]
+radius = 71.17584
+
+[node name="Star" type="Area2D" unique_id=1364291122]
+modulate = Color(0.9647059, 0.9098039, 0.8784314, 1)
+collision_layer = 4
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=812817200]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_vhy3k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=332405041]
+shape = SubResource("CircleShape2D_vhy3k")

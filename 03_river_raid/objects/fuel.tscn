@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqvxy51cbm4hk"]
+
+[ext_resource type="Texture2D" uid="uid://brwvts2rp8eis" path="res://art/fuel.png" id="1_fje1f"]
+[ext_resource type="Script" uid="uid://df3qk84ydmrca" path="res://scripts/auto_delete.gd" id="3_fje1f"]
+[ext_resource type="Script" uid="uid://bmxpwxh1jp0m1" path="res://scripts/scrolling_object.gd" id="3_j52im"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3g83b"]
+size = Vector2(32, 32)
+
+[node name="Fuel" type="Area2D"]
+collision_layer = 8
+collision_mask = 33
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fje1f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3g83b")
+
+[node name="Scroll" type="Node" parent="."]
+script = ExtResource("3_j52im")
+
+[node name="AutoDelete" type="Node" parent="."]
+script = ExtResource("3_fje1f")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

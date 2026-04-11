@@ -1,0 +1,13 @@
+res://core/game.tscn
+res://todo.md
+res://objects/obstacle.tscn
+res://objects/obstacle.gd
+res://objects/background.gd
+res://objects/scrolling_texture.gd
+res://objects/floor.tscn
+res://ui/hud.tscn
+res://core/core.gd
+res://ui/score_updater.gd
+res://ui/game_over.gd
+res://ui/game_over.tscn
+res://ui/high_score_updater.gd

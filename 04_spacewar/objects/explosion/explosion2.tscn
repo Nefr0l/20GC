@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://d3kf4v2nrsc8i"]
+
+[ext_resource type="Texture2D" uid="uid://bs8vio31xdanh" path="res://art/bitmap.svg" id="1_d0wuq"]
+[ext_resource type="Material" uid="uid://dgtjjye1uctax" path="res://effects/explosive_particles2.tres" id="2_rmytu"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" unique_id=373876463]
+process_mode = 3
+modulate = Color(0.9999996, 0.4436921, 0.08426566, 1)
+z_index = 1
+emitting = false
+amount = 13
+texture = ExtResource("1_d0wuq")
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+process_material = ExtResource("2_rmytu")

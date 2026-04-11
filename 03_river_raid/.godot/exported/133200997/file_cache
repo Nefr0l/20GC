@@ -1,0 +1,13 @@
+res://core/game.tscn::5d67a1cc050f8977681b34ff8efaca3b::1768991573::res://.godot/exported/133200997/export-1ede653060919c68a6feaf5c7bec4c16-game.scn
+res://core/menu.tscn::5ed6fc1e3fbd4ab938e2f0b2a19a3606::1768998420::res://.godot/exported/133200997/export-6b5bcde957e954aed1c3ff5b1c422b7f-menu.scn
+res://enemies/boat.tscn::b04f6d1787ab7d9422d2a3613223563c::1768994938::res://.godot/exported/133200997/export-f2d06547b2358b01d5c8f08ca9209e8c-boat.scn
+res://enemies/enemy.tscn::e1c54f700a4d0cd2afbfec57026ca565::1768838178::res://.godot/exported/133200997/export-c236662bf91a99b4edb6703cae1f6ca1-enemy.scn
+res://enemies/plane.tscn::4ed9f97532eece7923c7f47447d79a6d::1768995017::res://.godot/exported/133200997/export-364acf9ae0500c960bfe06a7f8a8199c-plane.scn
+res://objects/bridge.tscn::04d3c75e64bccc55638dc5ee2a30c578::1768995715::res://.godot/exported/133200997/export-8d65156200f179ae61ce5e98594947f2-bridge.scn
+res://objects/cube.tscn::d042f244e447d265c3847ed27c02e3c6::1768994934::res://.godot/exported/133200997/export-7346586a53bd3127f8e409543e31b909-cube.scn
+res://objects/fuel.tscn::927b84261e241a3cdda9da15acbfbde0::1768992260::res://.godot/exported/133200997/export-f197fda06755d6c2d84270b27610cc23-fuel.scn
+res://player/bullet.tscn::e555a910a690ef05ff7dc21b61d16a9c::1768992244::res://.godot/exported/133200997/export-ccbd35e6f72058f9e5d89a0d1cb3e691-bullet.scn
+res://player/player.tscn::a82e262b2e9749a1c68c730e9b54db0c::1768993246::res://.godot/exported/133200997/export-753d15e03e0182f9d550ac833b42bb41-player.scn
+res://ui/game_over.tscn::a9e5538654caf12c778e65ee73a70433::1768990992::res://.godot/exported/133200997/export-7e68a50ec0ca2a0b9447c957bb052603-game_over.scn
+res://ui/hud.tscn::c03b6c8aa9e06101562201ec2d93f33f::1768996175::res://.godot/exported/133200997/export-bab6eb13998c1d76cbb0c1fb3e7dc228-hud.scn
+res://ui/label_default.tres::dc8af657d94763f0419b583a70e8eefc::1768995561::res://.godot/exported/133200997/export-70c0a25dc6be75184dcbe346bff3dbeb-label_default.res

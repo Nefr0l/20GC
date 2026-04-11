@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://c7iy62tynkey4"]
+
+[ext_resource type="Texture2D" uid="uid://cicemn5md4jh4" path="res://art/bridge.png" id="1_dt2p5"]
+[ext_resource type="Script" uid="uid://bmxpwxh1jp0m1" path="res://scripts/scrolling_object.gd" id="2_0tjhg"]
+[ext_resource type="Script" uid="uid://by7x6h30pun2y" path="res://scripts/follower.gd" id="2_s7roc"]
+[ext_resource type="Texture2D" uid="uid://drarmvux5jo86" path="res://art/grass.png" id="3_dt2p5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0tjhg"]
+size = Vector2(193, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2e2mj"]
+size = Vector2(512, 32)
+
+[node name="Bridge" type="Area2D"]
+collision_layer = 16
+collision_mask = 33
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(321, 0)
+scale = Vector2(1.546875, 1)
+texture = ExtResource("1_dt2p5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(320.5, -0.5)
+shape = SubResource("RectangleShape2D_0tjhg")
+
+[node name="Bounds" type="Node" parent="."]
+
+[node name="Area2D" type="Area2D" parent="Bounds" node_paths=PackedStringArray("to_follow")]
+position = Vector2(-96, 0)
+collision_layer = 2
+script = ExtResource("2_s7roc")
+follow_y = true
+to_follow = NodePath("../..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds/Area2D"]
+position = Vector2(64, 0)
+shape = SubResource("RectangleShape2D_2e2mj")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bounds/Area2D"]
+texture_repeat = 2
+position = Vector2(64, 0)
+texture = ExtResource("3_dt2p5")
+region_enabled = true
+region_rect = Rect2(0, 0, 512, 32)
+
+[node name="Area2D2" type="Area2D" parent="Bounds" node_paths=PackedStringArray("to_follow")]
+position = Vector2(608, 0)
+collision_layer = 2
+script = ExtResource("2_s7roc")
+follow_y = true
+to_follow = NodePath("../..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds/Area2D2"]
+position = Vector2(64, 0)
+shape = SubResource("RectangleShape2D_2e2mj")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bounds/Area2D2"]
+texture_repeat = 2
+position = Vector2(64, 0)
+texture = ExtResource("3_dt2p5")
+region_enabled = true
+region_rect = Rect2(0, 0, 512, 32)
+
+[node name="Scroll" type="Node" parent="."]
+script = ExtResource("2_0tjhg")

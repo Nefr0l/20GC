@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://c8j76rwebrhep"]
+
+[ext_resource type="PackedScene" uid="uid://81r8t8m2h63o" path="res://player/player.tscn" id="1_d3un6"]
+[ext_resource type="PackedScene" uid="uid://dg01w1kup14hc" path="res://objects/floor.tscn" id="2_5sg27"]
+[ext_resource type="Script" uid="uid://dnyoxdjofy0sh" path="res://objects/scrolling_texture.gd" id="2_cjuek"]
+[ext_resource type="PackedScene" uid="uid://2u4o22kavi5w" path="res://ui/game_over.tscn" id="4_a04qp"]
+[ext_resource type="PackedScene" uid="uid://ck125fiybebmj" path="res://ui/init.tscn" id="4_cjuek"]
+[ext_resource type="Texture2D" uid="uid://bmnj3h7l5foey" path="res://art/bg.png" id="4_sjcnv"]
+[ext_resource type="PackedScene" uid="uid://4s4pd16ltlhy" path="res://ui/hud.tscn" id="5_vhpdd"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0.48178947, 0.48178947, 0.48178947, 1)
+texture_repeat = 2
+position = Vector2(196.00002, 100.00001)
+scale = Vector2(3, 3)
+texture = ExtResource("4_sjcnv")
+region_enabled = true
+region_rect = Rect2(0, 0, 1000, 500)
+script = ExtResource("2_cjuek")
+scrolling_speed = 30.0
+
+[node name="Player" parent="." instance=ExtResource("1_d3un6")]
+position = Vector2(111, 344)
+
+[node name="Floor" parent="." instance=ExtResource("2_5sg27")]
+position = Vector2(548, 584)
+
+[node name="Floor2" parent="." instance=ExtResource("2_5sg27")]
+position = Vector2(548, -86)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Hud" parent="CanvasLayer/UI" instance=ExtResource("5_vhpdd")]
+layout_mode = 1
+
+[node name="Init" parent="CanvasLayer/UI" instance=ExtResource("4_cjuek")]
+visible = false
+layout_mode = 1
+
+[node name="GameOver" parent="CanvasLayer/UI" instance=ExtResource("4_a04qp")]
+visible = false
+layout_mode = 1
+
+[connection signal="player_dead" from="Player" to="CanvasLayer/UI/GameOver" method="_on_player_dead"]

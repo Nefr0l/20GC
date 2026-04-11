@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://nl4ipj4x85ex"]
+
+[ext_resource type="PackedScene" uid="uid://cnkfvcpjwwgsl" path="res://objects/player/player.tscn" id="1_d3un6"]
+[ext_resource type="PackedScene" uid="uid://b6j1q33aofdaj" path="res://objects/star/star.tscn" id="2_5sg27"]
+[ext_resource type="PackedScene" uid="uid://c3a5cc2d230am" path="res://ui/game_over.tscn" id="3_8xnxh"]
+[ext_resource type="Script" uid="uid://bynnpwcbqo85w" path="res://ui/panel.gd" id="4_a04qp"]
+[ext_resource type="PackedScene" uid="uid://mueueeoqpf7j" path="res://ui/pause.tscn" id="5_sjcnv"]
+[ext_resource type="Script" uid="uid://crfyh702nskk1" path="res://ui/pause.gd" id="6_cjuek"]
+
+[node name="Game" type="Node2D" unique_id=1454656550]
+
+[node name="Player1" parent="." unique_id=1676463814 instance=ExtResource("1_d3un6")]
+modulate = Color(1, 0.63529414, 0.6745098, 1)
+position = Vector2(300, 550)
+player = 1
+
+[node name="Player2" parent="." unique_id=382688828 instance=ExtResource("1_d3un6")]
+modulate = Color(0.6509804, 0.79607844, 0.5882353, 1)
+position = Vector2(1600, 550)
+rotation = 3.1415927
+player = 2
+
+[node name="Star" parent="." unique_id=1364291122 instance=ExtResource("2_5sg27")]
+position = Vector2(962, 550)
+
+[node name="Control" type="Control" parent="." unique_id=782284865]
+custom_minimum_size = Vector2(500, 400)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1919.0
+offset_bottom = 1087.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="GameOver" parent="Control" unique_id=2132506227 instance=ExtResource("3_8xnxh")]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_bottom = 1.0
+offset_left = -266.0
+offset_top = -191.0
+offset_right = 266.0
+offset_bottom = 191.0
+script = ExtResource("4_a04qp")
+boolean_name = "is_game_over"
+
+[node name="Pause" parent="Control" unique_id=353145866 instance=ExtResource("5_sjcnv")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 1920.0
+offset_bottom = 1075.0
+grow_horizontal = 1
+grow_vertical = 1
+script = ExtResource("6_cjuek")

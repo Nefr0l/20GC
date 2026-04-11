@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dskinnuf4bid3"]
+
+[ext_resource type="Script" uid="uid://bcvebebyh7mjd" path="res://player/player.gd" id="1_rkbax"]
+[ext_resource type="Texture2D" uid="uid://ca0ykpfpx3frn" path="res://art/plane.png" id="2_rkbax"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oul6g"]
+size = Vector2(32, 32)
+
+[node name="Player" type="Area2D"]
+collision_mask = 30
+script = ExtResource("1_rkbax")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_rkbax")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_oul6g")
+
+[node name="ShootingCooldown" type="Timer" parent="."]
+wait_time = 0.75
+
+[node name="FuelTimer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[connection signal="area_entered" from="." to="." method="_on_collision"]
+[connection signal="timeout" from="ShootingCooldown" to="." method="_on_shooting_cooldown_timeout"]
+[connection signal="timeout" from="FuelTimer" to="." method="_on_fuel_timer_timeout"]

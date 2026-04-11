@@ -1,0 +1,7 @@
+res://core/game.tscn::6aad4fb36e6661df2e3600cd530645e0::1768056902::res://.godot/exported/133200997/export-1ede653060919c68a6feaf5c7bec4c16-game.scn
+res://objects/floor.tscn::ceb547ba75341b90eb1475402b1a7ac1::1768055460::res://.godot/exported/133200997/export-53d061c47eccbb197a18cc747e023ac0-floor.scn
+res://objects/obstacle.tscn::9b68c7f801134677e2886ca800c89e7f::1768055245::res://.godot/exported/133200997/export-e8447e6724d1bd2b40f00fb2ff1f13fd-obstacle.scn
+res://player/player.tscn::59b7283a5befaccb6ea425fdc37773a8::1768030756::res://.godot/exported/133200997/export-753d15e03e0182f9d550ac833b42bb41-player.scn
+res://ui/game_over.tscn::9300b34a7a6b86761515cab46d1513f1::1768057334::res://.godot/exported/133200997/export-7e68a50ec0ca2a0b9447c957bb052603-game_over.scn
+res://ui/hud.tscn::623140b8ad23b22699886ffd86744759::1768057201::res://.godot/exported/133200997/export-bab6eb13998c1d76cbb0c1fb3e7dc228-hud.scn
+res://ui/init.tscn::5c665100c69166165245b39630ec00bf::1768032996::res://.godot/exported/133200997/export-16395116eacb191cc3c0685b3bd7b68b-init.scn

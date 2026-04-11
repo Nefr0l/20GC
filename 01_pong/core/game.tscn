@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://dtchwqlmtjm83"]
+
+[ext_resource type="PackedScene" uid="uid://cnnvci7r0x7au" path="res://paddle/paddle.tscn" id="1_d3un6"]
+[ext_resource type="Script" uid="uid://bkemtarpgsaf0" path="res://paddle/paddle.gd" id="2_5sg27"]
+[ext_resource type="PackedScene" uid="uid://c8abu2x4l2tr3" path="res://ball/ball.tscn" id="3_8xnxh"]
+[ext_resource type="PackedScene" uid="uid://cn75x3bf6lba4" path="res://core/score_gui.tscn" id="4_cjuek"]
+[ext_resource type="PackedScene" uid="uid://t2wenrce0yo5" path="res://wall/score_wall.tscn" id="5_cjuek"]
+[ext_resource type="PackedScene" uid="uid://citboipqpx4kg" path="res://wall/wall.tscn" id="5_sjcnv"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Paddle1" parent="." instance=ExtResource("1_d3un6")]
+position = Vector2(286, 324)
+script = ExtResource("2_5sg27")
+player = 1
+
+[node name="Paddle2" parent="." instance=ExtResource("1_d3un6")]
+position = Vector2(726, 202)
+script = ExtResource("2_5sg27")
+player = 2
+
+[node name="Ball" parent="." instance=ExtResource("3_8xnxh")]
+position = Vector2(22, 211)
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="Wall" parent="Walls" instance=ExtResource("5_sjcnv")]
+position = Vector2(-3, -28)
+
+[node name="Wall2" parent="Walls" instance=ExtResource("5_sjcnv")]
+position = Vector2(-12, 663)
+
+[node name="Wall3" parent="Walls" instance=ExtResource("5_cjuek")]
+position = Vector2(-52, 13)
+scoreToPlayer = 2
+
+[node name="Wall4" parent="Walls" instance=ExtResource("5_cjuek")]
+position = Vector2(1181, 6)
+scoreToPlayer = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1167.0
+offset_bottom = 651.0
+
+[node name="ScoreGui" parent="Control" instance=ExtResource("4_cjuek")]
+layout_mode = 1

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://t2wenrce0yo5"]
+
+[ext_resource type="Script" uid="uid://ca5phgujaiah8" path="res://wall/score_wall.gd" id="1_1mdws"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6k1y5"]
+size = Vector2(45, 666)
+
+[node name="Wall" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_1mdws")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(12.5, 323)
+shape = SubResource("RectangleShape2D_6k1y5")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

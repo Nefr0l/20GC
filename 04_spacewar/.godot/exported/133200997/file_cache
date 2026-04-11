@@ -1,0 +1,13 @@
+res://core/game.tscn::2bacfa45d523051d2993af12458576a4::1772721142::res://.godot/exported/133200997/export-1ede653060919c68a6feaf5c7bec4c16-game.scn
+res://effects/button.tres::c41ce116122c551ab3bc9d96dfe44d75::1772201846::res://.godot/exported/133200997/export-d0acb1c2a70e5624cce1f04a8be8a7b3-button.res
+res://effects/explosive_particles2.tres::c81818773d76391c90210a3ae37425a0::1772624326::res://.godot/exported/133200997/export-c2cb59f61614a15fc5e359aaff68252a-explosive_particles2.res
+res://effects/explosive_particle_process_material.tres::a3d1375c37a6774e1b8914b5ec04f803::1772358949::res://.godot/exported/133200997/export-977972400a23fc073a523e929001a46a-explosive_particle_process_material.res
+res://effects/theme.tres::43e6c2587ae27745338ff582a5747990::1772720990::res://.godot/exported/133200997/export-dc20198ac52f0dda2949a2ca2baa0a7c-theme.res
+res://objects/bullet/bullet.tscn::c6d8ae1f243beaa961a13d1a3d01de61::1772468819::res://.godot/exported/133200997/export-f232431e84a8ae042ae04bc4d3af190d-bullet.scn
+res://objects/explosion/explosion2.tscn::dff5eeb15078549e07b799b4fcb58893::1772359841::res://.godot/exported/133200997/export-52f2a6cac4a309a5a78105c680aa65dc-explosion2.scn
+res://objects/explosion/explosion.tscn::e5e0ee68c565f0e9ccf7ba3fa56fc994::1772359771::res://.godot/exported/133200997/export-0692c0525976f141975ac12895623b2d-explosion.scn
+res://objects/player/player.tscn::1300274d692d190a7a2379ef09d2a0a7::1772469428::res://.godot/exported/133200997/export-af43f1489f8ddd2e3337968c398c1c3c-player.scn
+res://objects/star/star.tscn::4de77377f57d419cd2913b34369faa9e::1772469627::res://.godot/exported/133200997/export-0a57f8fa28d4c6cf99c52f03297246b1-star.scn
+res://ui/game_over.tscn::f5f0987b16832882d1e943b99059e28d::1772627265::res://.godot/exported/133200997/export-7e68a50ec0ca2a0b9447c957bb052603-game_over.scn
+res://ui/main_menu.tscn::2ef4aa077d79b6d369b11eb9856ee837::1772625599::res://.godot/exported/133200997/export-1a1b24a6c6735a2fec28ecd357261224-main_menu.scn
+res://ui/pause.tscn::ca1adca9d28c447bafb7b050174bbae0::1772625617::res://.godot/exported/133200997/export-05d3fca028d44932e58696836b764735-pause.scn

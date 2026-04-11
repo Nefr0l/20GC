@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=3 uid="uid://0qmxaom0kle6"]
+
+[ext_resource type="FontFile" uid="uid://c0ug86inewday" path="res://ui/monogram.ttf" id="1_qgwio"]
+[ext_resource type="Script" uid="uid://bl64nk5fqcuq0" path="res://ui/ui_handler.gd" id="1_wfmir"]
+[ext_resource type="Texture2D" uid="uid://clm13xx3yktqd" path="res://art/water.png" id="2_4imft"]
+
+[sub_resource type="Theme" id="Theme_wfmir"]
+default_font = ExtResource("1_qgwio")
+default_font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_wfmir"]
+font = ExtResource("1_qgwio")
+font_size = 64
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Menu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wfmir")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_4imft")
+stretch_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_wfmir")
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "raiding the river"
+label_settings = SubResource("LabelSettings_wfmir")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "raid"
+
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "quit"
+
+[connection signal="button_down" from="MarginContainer/VBoxContainer/Button" to="." method="_play"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/Button2" to="." method="_exit"]

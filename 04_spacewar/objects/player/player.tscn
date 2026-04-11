@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cnkfvcpjwwgsl"]
+
+[ext_resource type="Texture2D" uid="uid://b1rganoxl7h4g" path="res://art/ship.svg" id="1_cqmt1"]
+[ext_resource type="Script" uid="uid://v0d71xyx8r6t" path="res://objects/player/player_controller.gd" id="1_g7ett"]
+[ext_resource type="Script" path="res://objects/player/gravity.gd" id="4_jnjyq"]
+
+[node name="Player" type="Area2D" unique_id=7419873]
+collision_mask = 7
+script = ExtResource("1_g7ett")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2100850149]
+rotation = 1.5707964
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("1_cqmt1")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="." unique_id=652537055]
+position = Vector2(-6, -5.5)
+polygon = PackedVector2Array(28, 5.5, -14, -15.5, -4, 5.5, -14, 25.5)
+
+[node name="ShootingCooldown" type="Timer" parent="." unique_id=216060321]
+wait_time = 1.2999999999999998
+autostart = true
+
+[node name="Gravity" type="Node" parent="." unique_id=65750853]
+script = ExtResource("4_jnjyq")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="ShootingCooldown" to="." method="_on_shooting_cooldown_timeout"]

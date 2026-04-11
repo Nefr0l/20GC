@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cn75x3bf6lba4"]
+
+[ext_resource type="Script" uid="uid://c2m0wpsr66k4l" path="res://core/score_gui.gd" id="1_5ajcf"]
+[ext_resource type="FontFile" uid="uid://d3fwkmauoffw3" path="res://assets/monogram.ttf" id="1_5pdff"]
+
+[node name="ScoreGui" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -552.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.79607844, 0.85882354, 0.9882353, 1)
+theme_override_fonts/font = ExtResource("1_5pdff")
+theme_override_font_sizes/font_size = 64
+text = "Score: "
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_5ajcf")

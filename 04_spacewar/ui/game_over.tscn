@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://c3a5cc2d230am"]
+
+[ext_resource type="Script" uid="uid://bf45kf6x2ru5x" path="res://ui/selectable_menu.gd" id="1_5eixk"]
+[ext_resource type="Theme" uid="uid://bxh70plftoyvc" path="res://effects/theme.tres" id="3_akjlf"]
+[ext_resource type="Script" uid="uid://c7jxopaxkbk34" path="res://ui/updater.gd" id="3_j1fe5"]
+[ext_resource type="Script" uid="uid://cb6nlp241ukxg" path="res://ui/button.gd" id="3_xjda6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_j1fe5"]
+font_size = 64
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+
+[node name="GameOver" type="MarginContainer" unique_id=2132506227]
+process_mode = 3
+z_index = 3
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.034
+offset_bottom = -16.320007
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HFlowContainer" type="VBoxContainer" parent="." unique_id=1900226319]
+layout_mode = 2
+script = ExtResource("1_5eixk")
+pause_condition_name = "is_game_over"
+
+[node name="Label" type="Label" parent="HFlowContainer" unique_id=2020451469]
+process_mode = 3
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme = ExtResource("3_akjlf")
+theme_override_font_sizes/font_size = 64
+text = "Game Over"
+label_settings = SubResource("LabelSettings_j1fe5")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="HFlowContainer" unique_id=308561555]
+process_mode = 3
+custom_minimum_size = Vector2(400, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme = ExtResource("3_akjlf")
+theme_override_font_sizes/font_size = 32
+text = "won: player  "
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_j1fe5")
+prefix = "player won: "
+variable = "player_won"
+
+[node name="Button" type="Button" parent="HFlowContainer" unique_id=1596223801]
+process_mode = 3
+z_index = 1
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("3_akjlf")
+text = "restart"
+script = ExtResource("3_xjda6")
+action = 1
+parameter = "game"
+
+[node name="Button2" type="Button" parent="HFlowContainer" unique_id=1409373713]
+process_mode = 3
+z_index = 1
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme = ExtResource("3_akjlf")
+text = "return"
+script = ExtResource("3_xjda6")
+parameter = "ui/main_menu"
+
+[connection signal="button_down" from="HFlowContainer/Button" to="." method="_on_restart_button_down"]
+[connection signal="button_down" from="HFlowContainer/Button2" to="." method="_on_return_button_down"]

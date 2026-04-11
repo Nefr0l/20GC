@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://l2ma3hks5acc"]
+
+[ext_resource type="Script" uid="uid://bsfl7xsw2q3i2" path="res://scripts/moving_left_right.gd" id="1_hpblq"]
+[ext_resource type="Texture2D" uid="uid://b0u8tcri52y7e" path="res://art/boat.png" id="2_5p7of"]
+[ext_resource type="Script" uid="uid://bmxpwxh1jp0m1" path="res://scripts/scrolling_object.gd" id="3_5p7of"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5p7of"]
+radius = 16.0
+
+[node name="Enemy" type="Area2D"]
+z_index = 2
+collision_layer = 4
+collision_mask = 35
+script = ExtResource("1_hpblq")
+bound_limited = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_5p7of")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5p7of")
+
+[node name="Scroll" type="Node" parent="."]
+script = ExtResource("3_5p7of")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8ywm0tgppg2y"]
+
+[ext_resource type="Texture2D" uid="uid://drarmvux5jo86" path="res://art/grass.png" id="1_ubi45"]
+[ext_resource type="Script" uid="uid://bmxpwxh1jp0m1" path="res://scripts/scrolling_object.gd" id="2_ubi45"]
+[ext_resource type="Script" uid="uid://df3qk84ydmrca" path="res://scripts/auto_delete.gd" id="3_ubi45"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_idaay"]
+size = Vector2(32, 32)
+
+[node name="Cube" type="Area2D"]
+z_index = 1
+collision_layer = 2
+collision_mask = 33
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_repeat = 2
+texture = ExtResource("1_ubi45")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_idaay")
+
+[node name="Scroll" type="Node" parent="."]
+script = ExtResource("2_ubi45")
+
+[node name="AutoDelete" type="Node" parent="."]
+script = ExtResource("3_ubi45")

@@ -1,0 +1,16 @@
+res://ui/game_over.tscn
+res://core/game.tscn
+res://objects/bridge.tscn
+res://todo.md
+res://objects/cube.tscn
+res://player/bullet.tscn
+res://objects/fuel.tscn
+res://enemies/boat.tscn
+res://enemies/plane.tscn
+res://player/player.tscn
+res://core/core.gd
+res://core/menu.tscn
+res://ui/hud.tscn
+res://ui/progress_updater.gd
+res://ui/label_default.tres
+res://ui/game_over.gd

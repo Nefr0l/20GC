@@ -1,0 +1,6 @@
+res://ball/ball.tscn::faad2d4de8825efbb3797d39e6ac2bc5::1767185982::res://.godot/exported/133200997/export-aa472a0d890b75e2052880d0e5edf4a4-ball.scn
+res://core/game.tscn::305ec2056cd3844aaff36878b6fc1c63::1769075111::res://.godot/exported/133200997/export-1ede653060919c68a6feaf5c7bec4c16-game.scn
+res://core/score_gui.tscn::07fcc17814f51a2e92f333005899921f::1767185772::res://.godot/exported/133200997/export-e545cd058b4345d316d0eb41e3a089e7-score_gui.scn
+res://paddle/paddle.tscn::cde76c663c1151949d4cb3f4b697d863::1767186103::res://.godot/exported/133200997/export-1805425621ff3ce31f94aaf8bc7db640-paddle.scn
+res://wall/score_wall.tscn::d3451f4f81b3fae010bd7a2f2f594f91::1767103127::res://.godot/exported/133200997/export-b71f0c3b7d8dae6dd56932b22a298d8c-score_wall.scn
+res://wall/wall.tscn::e1b6560e87121c0ffd209662f814fa08::1767102753::res://.godot/exported/133200997/export-15d0587e733c4bb9e4a5c6f003546306-wall.scn

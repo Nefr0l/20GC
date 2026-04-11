@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://ck125fiybebmj"]
+
+[ext_resource type="Script" uid="uid://d2hy332alsghw" path="res://ui/init.gd" id="1_bwd1a"]
+[ext_resource type="FontFile" uid="uid://bpk8qbmeho3oa" path="res://ui/monogram.ttf" id="1_kitgn"]
+
+[node name="Init" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bwd1a")
+
+[node name="MarginContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_kitgn")
+theme_override_font_sizes/font_size = 48
+text = "Press any key to start"

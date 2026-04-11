@@ -1,0 +1,88 @@
+[gd_scene load_steps=10 format=3 uid="uid://bvr1mi6ldmvrh"]
+
+[ext_resource type="PackedScene" uid="uid://dskinnuf4bid3" path="res://player/player.tscn" id="1_d3un6"]
+[ext_resource type="PackedScene" uid="uid://dffy0f2e1dy02" path="res://ui/hud.tscn" id="1_sjcnv"]
+[ext_resource type="PackedScene" uid="uid://cbhpc848507lr" path="res://player/bullet.tscn" id="2_5sg27"]
+[ext_resource type="Script" uid="uid://b8sapsvu4varr" path="res://scripts/scrolling_texture.gd" id="3_a04qp"]
+[ext_resource type="Texture2D" uid="uid://drarmvux5jo86" path="res://art/grass.png" id="3_vhpdd"]
+[ext_resource type="PackedScene" uid="uid://cmt2ge62ism1o" path="res://ui/game_over.tscn" id="5_cjuek"]
+[ext_resource type="Texture2D" uid="uid://clm13xx3yktqd" path="res://art/water.png" id="6_gjr3k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sjcnv"]
+size = Vector2(64, 656)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a04qp"]
+size = Vector2(64, 640)
+
+[node name="Game" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+z_index = 4
+layout_mode = 3
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_right = 640.0
+offset_bottom = 480.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Hud" parent="Control" instance=ExtResource("1_sjcnv")]
+layout_mode = 1
+
+[node name="GameOver" parent="Control" instance=ExtResource("5_cjuek")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 640.0
+offset_bottom = 512.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Bound1" type="Area2D" parent="."]
+z_index = 1
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Bound1"]
+texture_repeat = 2
+position = Vector2(0, 256)
+texture = ExtResource("3_vhpdd")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 640)
+script = ExtResource("3_a04qp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bound1"]
+position = Vector2(0, 248)
+shape = SubResource("RectangleShape2D_sjcnv")
+
+[node name="Bound2" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="Bound2"]
+z_index = 1
+texture_repeat = 2
+position = Vector2(640, 256)
+texture = ExtResource("3_vhpdd")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 640)
+script = ExtResource("3_a04qp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bound2"]
+position = Vector2(640, 256)
+shape = SubResource("RectangleShape2D_a04qp")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(320, 256)
+texture = ExtResource("6_gjr3k")
+region_enabled = true
+region_rect = Rect2(0, 0, 640, 640)
+script = ExtResource("3_a04qp")
+
+[node name="Player" parent="." instance=ExtResource("1_d3un6")]
+position = Vector2(125, 423)
+speed = 250.0
+bullet_node = ExtResource("2_5sg27")

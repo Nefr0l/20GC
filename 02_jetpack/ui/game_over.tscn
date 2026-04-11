@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://2u4o22kavi5w"]
+
+[ext_resource type="Script" uid="uid://b353xc1im607o" path="res://ui/game_over.gd" id="1_5eixk"]
+[ext_resource type="FontFile" uid="uid://bpk8qbmeho3oa" path="res://ui/monogram.ttf" id="1_oo8kp"]
+[ext_resource type="Script" uid="uid://bm83akqippfrw" path="res://ui/update_high_score.gd" id="3_j1fe5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j1fe5"]
+bg_color = Color(0.1489891, 0.16070803, 0.17634852, 1)
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5eixk")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="HFlowContainer" type="VFlowContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HFlowContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_fonts/font = ExtResource("1_oo8kp")
+theme_override_font_sizes/font_size = 64
+text = "Game Over lol"
+
+[node name="Label2" type="Label" parent="MarginContainer/HFlowContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 2
+theme_override_fonts/font = ExtResource("1_oo8kp")
+theme_override_font_sizes/font_size = 32
+text = "high score: "
+script = ExtResource("3_j1fe5")
+
+[node name="Button" type="Button" parent="MarginContainer/HFlowContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_fonts/font = ExtResource("1_oo8kp")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_j1fe5")
+text = "restart"
+
+[connection signal="button_down" from="MarginContainer/HFlowContainer/Button" to="." method="_on_restart_button_down"]
