@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://dd5eyrsrvbpgj"]
+
+[ext_resource type="LabelSettings" uid="uid://cjxxgpuoeh4nj" path="res://ui/theming/label_settings_ui.tres" id="1_5thnu"]
+[ext_resource type="PackedScene" uid="uid://b78g8204ca2ey" path="res://ui/button.tscn" id="1_l68d4"]
+[ext_resource type="Theme" uid="uid://75phg73pprgl" path="res://ui/theming/game_theme.tres" id="1_p63cu"]
+[ext_resource type="Script" uid="uid://b4kn1sco6pjth" path="res://components/visible_if.gd" id="1_ulxh5"]
+
+[node name="Panel" type="Panel" unique_id=2019623831]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_p63cu")
+script = ExtResource("1_ulxh5")
+boolean_name = "is_game_over"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1397285881]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1221088238]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+text = "Game Over"
+label_settings = ExtResource("1_5thnu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" parent="VBoxContainer" unique_id=2070388082 instance=ExtResource("1_l68d4")]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("1_p63cu")
+text = "Retry"
+
+[node name="Button2" parent="VBoxContainer" unique_id=1126045968 instance=ExtResource("1_l68d4")]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("1_p63cu")
+text = "To menu"
+
+[connection signal="button_down" from="VBoxContainer/Button" to="VBoxContainer/Button" method="reload_current_scene"]
+[connection signal="button_down" from="VBoxContainer/Button2" to="VBoxContainer/Button2" method="change_scene" binds= ["ui/main_menu"]]

@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://cikwtquqk7i7g"]
+
+[ext_resource type="Script" uid="uid://bqnj8bd1veglj" path="res://src/mapper/mapper.gd" id="1_c1fv3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bgyeq"]
+radius = 4.0
+
+[node name="Mapper" type="Node2D" unique_id=238495656]
+script = ExtResource("1_c1fv3")
+
+[node name="low_right" type="Area2D" parent="." unique_id=632381427]
+collision_mask = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="low_right" unique_id=1740093505]
+position = Vector2(16, 16)
+shape = SubResource("CircleShape2D_bgyeq")
+
+[node name="right" type="Area2D" parent="." unique_id=1925525364]
+collision_mask = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="right" unique_id=2003198606]
+position = Vector2(16, 0)
+shape = SubResource("CircleShape2D_bgyeq")
+
+[node name="left" type="Area2D" parent="." unique_id=648300080]
+collision_mask = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="left" unique_id=848686851]
+position = Vector2(-16, 0)
+shape = SubResource("CircleShape2D_bgyeq")
+
+[node name="up" type="Area2D" parent="." unique_id=506784753]
+collision_mask = 2
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="up" unique_id=1040139269]
+position = Vector2(0, -16)
+shape = SubResource("CircleShape2D_bgyeq")
+
+[node name="down" type="Area2D" parent="." unique_id=910347454]
+collision_mask = 2
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="down" unique_id=1244982868]
+position = Vector2(0, 16)
+shape = SubResource("CircleShape2D_bgyeq")

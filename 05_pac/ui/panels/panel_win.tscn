@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://2mjtjx0ev162"]
+
+[ext_resource type="Theme" uid="uid://75phg73pprgl" path="res://ui/theming/game_theme.tres" id="1_tnih2"]
+[ext_resource type="Script" uid="uid://b4kn1sco6pjth" path="res://components/visible_if.gd" id="2_gmsht"]
+[ext_resource type="LabelSettings" uid="uid://cjxxgpuoeh4nj" path="res://ui/theming/label_settings_ui.tres" id="3_ctgyl"]
+[ext_resource type="PackedScene" uid="uid://b78g8204ca2ey" path="res://ui/button.tscn" id="4_md733"]
+
+[node name="Panel2" type="Panel" unique_id=2019623831]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_tnih2")
+script = ExtResource("2_gmsht")
+boolean_name = "is_game_over"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1397285881]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1221088238]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+text = "Level Cleared"
+label_settings = ExtResource("3_ctgyl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" parent="VBoxContainer" unique_id=2070388082 instance=ExtResource("4_md733")]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("1_tnih2")
+text = "Woo hoo!"
+
+[connection signal="button_down" from="VBoxContainer/Button" to="VBoxContainer/Button" method="change_scene" binds= ["ui/main_menu"]]

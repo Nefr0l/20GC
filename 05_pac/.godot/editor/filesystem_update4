@@ -1,0 +1,9 @@
+res://src/player/player.tscn
+res://assets/tiles.tres
+res://src/game.gd
+res://ui/events.gd
+res://todo.md
+res://src/game.tscn
+res://src/ghost/ghost.gd
+res://src/ghost/ghost.tscn
+res://src/movement_controller/movement_controller.gd

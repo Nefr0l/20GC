@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://c5osq2hfcf3cx"]
+
+[ext_resource type="Theme" uid="uid://75phg73pprgl" path="res://ui/theming/game_theme.tres" id="1_0dkrt"]
+[ext_resource type="Script" uid="uid://byw1qd6yxvmqy" path="res://ui/events.gd" id="1_t7e0r"]
+
+[node name="MainMenu" type="Control" unique_id=870439177]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_0dkrt")
+
+[node name="MarginContainer" type="Panel" parent="." unique_id=943651142]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_0dkrt")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=847565463]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 992.0
+offset_bottom = 992.0
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=484607821]
+modulate = Color(1, 0.8039216, 0.45882353, 1)
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+theme_override_font_sizes/font_size = 128
+text = "PACMAN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1927044057]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_0dkrt")
+text = "play"
+script = ExtResource("1_t7e0r")
+
+[connection signal="button_down" from="MarginContainer/VBoxContainer/Button" to="MarginContainer/VBoxContainer/Button" method="change_scene" binds= ["src/game"]]

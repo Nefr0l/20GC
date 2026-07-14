@@ -1,0 +1,16 @@
+[gd_resource type="Theme" format=3 uid="uid://75phg73pprgl"]
+
+[ext_resource type="StyleBox" uid="uid://cajsb6pr1cid1" path="res://ui/theming/bg_black.tres" id="1_d5wxp"]
+[ext_resource type="StyleBox" uid="uid://csyvjt0fu7p81" path="res://ui/theming/bg_secondary.tres" id="2_b1xt0"]
+[ext_resource type="StyleBox" uid="uid://bcshx2316p07l" path="res://ui/theming/bg_primary.tres" id="3_gdy3v"]
+[ext_resource type="FontFile" uid="uid://ijski3eku680" path="res://ui/monogram.ttf" id="4_b1xt0"]
+
+[resource]
+default_font = ExtResource("4_b1xt0")
+default_font_size = 20
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/font_sizes/font_size = 48
+Button/styles/hover = ExtResource("2_b1xt0")
+Button/styles/normal = ExtResource("1_d5wxp")
+Button/styles/pressed = ExtResource("2_b1xt0")
+Panel/styles/panel = ExtResource("3_gdy3v")

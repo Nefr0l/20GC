@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bu3voog4bd720"]
+
+[ext_resource type="Script" uid="uid://cn765mj2gymx7" path="res://src/power_pellet/power_pellet.gd" id="1_1vjdd"]
+[ext_resource type="Texture2D" uid="uid://o2fl84ur17im" path="res://assets/dot.png" id="1_8gd35"]
+[ext_resource type="PackedScene" uid="uid://da1vqh2prby88" path="res://components/snap_at_start/snap_at_start.tscn" id="2_8yorq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8yorq"]
+
+[node name="PowerPellet" type="Area2D" unique_id=2142896409]
+collision_layer = 16
+script = ExtResource("1_1vjdd")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=6382939]
+modulate = Color(0.9372549, 0.49019608, 0.34117648, 1)
+texture = ExtResource("1_8gd35")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=964971671]
+shape = SubResource("CircleShape2D_8yorq")
+
+[node name="SnapAtStart" parent="." unique_id=2118839275 instance=ExtResource("2_8yorq")]
+
+[connection signal="area_entered" from="." to="." method="on_eat"]

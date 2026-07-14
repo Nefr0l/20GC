@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b78g8204ca2ey"]
+
+[ext_resource type="Script" uid="uid://byw1qd6yxvmqy" path="res://ui/events.gd" id="1_0dg7g"]
+
+[node name="Button" type="Button" unique_id=2070388082]
+custom_minimum_size = Vector2(300, 45)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_right = 150.0
+offset_bottom = 31.0
+grow_horizontal = 2
+text = "Lorem Ipsum"
+script = ExtResource("1_0dg7g")

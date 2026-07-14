@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://da5ic2py7rejo"]
+
+[ext_resource type="Script" uid="uid://b2206y2xiuee8" path="res://src/movement_controller/movement_controller.gd" id="1_grll3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gmlin"]
+
+[node name="MovementController" type="Node2D" unique_id=450962975]
+script = ExtResource("1_grll3")
+is_player = true
+
+[node name="right" type="Area2D" parent="." unique_id=2089185458]
+collision_mask = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="right" unique_id=1267755043]
+position = Vector2(16, 0)
+shape = SubResource("CircleShape2D_gmlin")
+
+[node name="left" type="Area2D" parent="." unique_id=275622959]
+collision_mask = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="left" unique_id=1474694507]
+position = Vector2(-16, 0)
+shape = SubResource("CircleShape2D_gmlin")
+
+[node name="up" type="Area2D" parent="." unique_id=150170132]
+collision_mask = 2
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="up" unique_id=321236203]
+position = Vector2(0, -16)
+shape = SubResource("CircleShape2D_gmlin")
+
+[node name="down" type="Area2D" parent="." unique_id=730836464]
+collision_mask = 2
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="down" unique_id=1030623053]
+position = Vector2(0, 16)
+shape = SubResource("CircleShape2D_gmlin")
+
+[connection signal="body_entered" from="right" to="." method="add_collider" binds= [Vector2(1, 0)]]
+[connection signal="body_exited" from="right" to="." method="remove_collider" binds= [Vector2(1, 0)]]
+[connection signal="body_entered" from="left" to="." method="add_collider" binds= [Vector2(-1, 0)]]
+[connection signal="body_exited" from="left" to="." method="remove_collider" binds= [Vector2(-1, 0)]]
+[connection signal="body_entered" from="up" to="." method="add_collider" binds= [Vector2(0, -1)]]
+[connection signal="body_exited" from="up" to="." method="remove_collider" binds= [Vector2(0, -1)]]
+[connection signal="body_entered" from="down" to="." method="add_collider" binds= [Vector2(0, 1)]]
+[connection signal="body_exited" from="down" to="." method="remove_collider" binds= [Vector2(0, 1)]]

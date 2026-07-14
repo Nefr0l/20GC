@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://chfyw00101r74"]
+
+[ext_resource type="Script" uid="uid://d2laihjgcgqbe" path="res://src/ghost/ghost.gd" id="1_0o75s"]
+[ext_resource type="Texture2D" uid="uid://2jk8ppli6qla" path="res://assets/ghost.png" id="2_f8c34"]
+[ext_resource type="PackedScene" uid="uid://da5ic2py7rejo" path="res://src/movement_controller/movement_controller.tscn" id="3_0o75s"]
+[ext_resource type="PackedScene" uid="uid://da1vqh2prby88" path="res://components/snap_at_start/snap_at_start.tscn" id="4_f8c34"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kkp1v"]
+size = Vector2(26, 26)
+
+[node name="Ghost" type="Area2D" unique_id=1558953800]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_0o75s")
+corner_direction = Vector2(1, -1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2054895634]
+position = Vector2(7.1525574e-07, 7.1525574e-07)
+scale = Vector2(1.625, 1.625)
+texture = ExtResource("2_f8c34")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=464554644]
+shape = SubResource("RectangleShape2D_kkp1v")
+
+[node name="MovementController" parent="." unique_id=450962975 instance=ExtResource("3_0o75s")]
+is_player = false
+
+[node name="right" parent="MovementController" index="0" unique_id=2089185458]
+collision_layer = 4
+
+[node name="left" parent="MovementController" index="1" unique_id=275622959]
+collision_layer = 4
+
+[node name="up" parent="MovementController" index="2" unique_id=150170132]
+collision_layer = 4
+
+[node name="down" parent="MovementController" index="3" unique_id=730836464]
+collision_layer = 4
+
+[node name="SnapAtStart" parent="." unique_id=2118839275 instance=ExtResource("4_f8c34")]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="move" from="." to="MovementController" method="move"]
+[connection signal="on_stop" from="MovementController" to="." method="_on_stop"]
+
+[editable path="MovementController"]

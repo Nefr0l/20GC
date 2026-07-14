@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://drn8lodwjeqeh"]
+
+[ext_resource type="Script" uid="uid://eedmk11ued5i" path="res://components/label_updater.gd" id="1_nt0o0"]
+[ext_resource type="Theme" uid="uid://75phg73pprgl" path="res://ui/theming/game_theme.tres" id="1_xcsiv"]
+[ext_resource type="LabelSettings" uid="uid://cjxxgpuoeh4nj" path="res://ui/theming/label_settings_ui.tres" id="1_xlv5r"]
+
+[node name="Gui" type="Control" unique_id=1869899029]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=771247487]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Hp" type="Label" parent="MarginContainer" unique_id=1709005741]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("1_xcsiv")
+theme_override_font_sizes/font_size = 48
+text = "Hp: 3"
+label_settings = ExtResource("1_xlv5r")
+script = ExtResource("1_nt0o0")
+prefix = "HP:"
+variable = "hp"
+
+[node name="Points" type="Label" parent="MarginContainer" unique_id=1670367669]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme = ExtResource("1_xcsiv")
+theme_override_font_sizes/font_size = 48
+text = "Points: 0"
+label_settings = ExtResource("1_xlv5r")
+script = ExtResource("1_nt0o0")
+variable = "points_label_text"

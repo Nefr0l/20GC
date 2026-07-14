@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://csful7dsotiad"]
+
+[ext_resource type="Script" uid="uid://dt0gwudgs44ed" path="res://src/player/player.gd" id="1_gmlin"]
+[ext_resource type="Texture2D" uid="uid://ccetbgpwino78" path="res://assets/pacman.png" id="2_244u8"]
+[ext_resource type="PackedScene" uid="uid://da5ic2py7rejo" path="res://src/movement_controller/movement_controller.tscn" id="3_mf2ua"]
+[ext_resource type="PackedScene" uid="uid://da1vqh2prby88" path="res://components/snap_at_start/snap_at_start.tscn" id="4_244u8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5f2sf"]
+atlas = ExtResource("2_244u8")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jiejy"]
+atlas = ExtResource("2_244u8")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o822w"]
+atlas = ExtResource("2_244u8")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x42xx"]
+atlas = ExtResource("2_244u8")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tuvci"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5f2sf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jiejy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o822w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x42xx")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8afob"]
+
+[node name="Player" type="Area2D" unique_id=702421564]
+collision_mask = 22
+script = ExtResource("1_gmlin")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1589106676]
+modulate = Color(1, 0.8039216, 0.45882353, 1)
+position = Vector2(1.0728836e-06, 1.0728836e-06)
+scale = Vector2(1.3750001, 1.3750001)
+sprite_frames = SubResource("SpriteFrames_tuvci")
+autoplay = "default"
+frame_progress = 0.30467513
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=449118708]
+shape = SubResource("RectangleShape2D_8afob")
+
+[node name="MovementController" parent="." unique_id=450962975 instance=ExtResource("3_mf2ua")]
+speed = 200
+
+[node name="right" parent="MovementController" index="0" unique_id=2089185458]
+collision_layer = 64
+collision_mask = 34
+
+[node name="left" parent="MovementController" index="1" unique_id=275622959]
+collision_layer = 64
+collision_mask = 34
+
+[node name="up" parent="MovementController" index="2" unique_id=150170132]
+collision_layer = 64
+collision_mask = 34
+
+[node name="down" parent="MovementController" index="3" unique_id=730836464]
+collision_layer = 64
+collision_mask = 34
+
+[node name="SnapAtStart" parent="." unique_id=2118839275 instance=ExtResource("4_244u8")]
+
+[connection signal="move" from="." to="MovementController" method="move"]
+
+[editable path="MovementController"]
