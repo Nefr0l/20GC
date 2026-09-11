@@ -1,5 +1,5 @@
 # 20 Games Challenge
-This is my attempt at a 20 Games Challenge. Feel free to use the code from the games.
+This is my attempt at a 20 Games Challenge. Feel free to use the code from the games. All the games are made in godot 4.4+.
 
 ## Currently made
 - 1. Pong clone
