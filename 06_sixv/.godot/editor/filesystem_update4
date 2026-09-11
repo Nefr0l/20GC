@@ -1,0 +1,5 @@
+res://ui/main_menu/main_menu.tscn
+res://ui/theme/theme.tres
+res://src/player/platformer_character.gd
+res://components/sprite_manager/sprite_manager.gd
+res://scope.md

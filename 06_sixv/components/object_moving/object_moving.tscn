@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://d1r4xfgc71s3w"]
+
+[ext_resource type="Script" uid="uid://yiw6bluc3au2" path="res://components/object_moving/object_moving.gd" id="1_aoqnj"]
+
+[node name="Wandering" type="Node" unique_id=515677914]
+script = ExtResource("1_aoqnj")

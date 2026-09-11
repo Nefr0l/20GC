@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://3rjsn7ecf576"]
+
+[ext_resource type="Theme" uid="uid://dd3gjdierwy5m" path="res://ui/theme/theme.tres" id="1_cwv3i"]
+[ext_resource type="Script" uid="uid://cdeftny8i3lg8" path="res://ui/ui_events.gd" id="2_tgxmk"]
+[ext_resource type="PackedScene" uid="uid://bcsqhk7h1ei71" path="res://components/show_if/show_if.tscn" id="3_4qlu5"]
+
+[node name="PanelWin" type="Control" unique_id=606326735]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_cwv3i")
+
+[node name="Panel" type="Panel" parent="." unique_id=929032562]
+modulate = Color(1, 1, 1, 0.68235296)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=313133191]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1712208981]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=2145582711]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Level cleared"
+vertical_alignment = 1
+
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer" unique_id=33756075]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Quit"
+script = ExtResource("2_tgxmk")
+
+[node name="ShowIf" parent="." unique_id=1071189710 instance=ExtResource("3_4qlu5")]
+condition1 = "win"
+condition1_status = true
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button2" to="MarginContainer/VBoxContainer/Button2" method="change_scene" binds= ["ui/main_menu/main_menu"]]

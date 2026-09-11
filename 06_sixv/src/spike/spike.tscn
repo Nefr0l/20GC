@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://d2ts57k03lg61"]
+
+[ext_resource type="Texture2D" uid="uid://kduf6l2x31na" path="res://assets/spike.png" id="1_q46rq"]
+[ext_resource type="PackedScene" uid="uid://ce8isq7t500be" path="res://components/object_dangerous/object_dangerous.tscn" id="2_q46rq"]
+
+[node name="Spike" type="Area2D" unique_id=601753436]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="." unique_id=988576018]
+polygon = PackedVector2Array(-8, 8, 8, 8, 0, -8)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=790213653]
+modulate = Color(0.8117647, 0.34117648, 0.23529412, 1)
+texture = ExtResource("1_q46rq")
+
+[node name="Enemy" parent="." unique_id=1564754504 instance=ExtResource("2_q46rq")]
+
+[connection signal="area_entered" from="." to="Enemy" method="_on_area_entered"]

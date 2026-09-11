@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://dvv2orqs66ny4"]
+
+[ext_resource type="Theme" uid="uid://dd3gjdierwy5m" path="res://ui/theme/theme.tres" id="1_g7s0r"]
+[ext_resource type="Script" uid="uid://g1qt6wtbkfi0" path="res://ui/panel_pause/pause.gd" id="2_10rva"]
+[ext_resource type="Script" uid="uid://cdeftny8i3lg8" path="res://ui/ui_events.gd" id="3_10rva"]
+[ext_resource type="PackedScene" uid="uid://bcsqhk7h1ei71" path="res://components/show_if/show_if.tscn" id="4_hib4i"]
+
+[node name="PausePanel" type="Control" unique_id=612406988]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_g7s0r")
+script = ExtResource("2_10rva")
+
+[node name="Panel" type="Panel" parent="." unique_id=250981852]
+modulate = Color(1, 1, 1, 0.68235296)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1357751104]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1465500276]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1694680490]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Game paused"
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=868082133]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Resume"
+script = ExtResource("3_10rva")
+
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1404841127]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Quit"
+
+[node name="ShowIf" parent="." unique_id=1071189710 instance=ExtResource("4_hib4i")]
+condition1 = "paused"
+condition1_status = true
+condition2 = "win"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="MarginContainer/VBoxContainer/Button" method="toggle_pause"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button2" to="MarginContainer/VBoxContainer/Button" method="change_scene" binds= ["ui/main_menu/main_menu"]]

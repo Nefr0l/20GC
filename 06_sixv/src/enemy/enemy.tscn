@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://bgjewisgrbtxc"]
+
+[ext_resource type="PackedScene" uid="uid://d1r4xfgc71s3w" path="res://components/object_moving/object_moving.tscn" id="2_ig63i"]
+[ext_resource type="Texture2D" uid="uid://bkthcsnalugu4" path="res://assets/enemy.png" id="3_t1xhc"]
+[ext_resource type="PackedScene" uid="uid://ce8isq7t500be" path="res://components/object_dangerous/object_dangerous.tscn" id="3_xso4u"]
+[ext_resource type="PackedScene" uid="uid://da1vqh2prby88" path="res://components/snap_to_grid/snap_to_grid.tscn" id="4_t1xhc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tuvci"]
+size = Vector2(18, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1xhc"]
+atlas = ExtResource("3_t1xhc")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4y1u"]
+atlas = ExtResource("3_t1xhc")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xso4u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1xhc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4y1u")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Enemy" type="CharacterBody2D" unique_id=852261407]
+collision_layer = 8
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=914843771]
+shape = SubResource("RectangleShape2D_tuvci")
+
+[node name="Wandering" parent="." unique_id=515677914 instance=ExtResource("2_ig63i")]
+initial_direction = Vector2(1, 0)
+speed = 100.0
+
+[node name="Enemy" parent="." unique_id=1564754504 instance=ExtResource("3_xso4u")]
+
+[node name="WallCollider" type="Area2D" parent="." unique_id=1595282786]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallCollider" unique_id=386345155]
+shape = SubResource("RectangleShape2D_tuvci")
+
+[node name="PlayerCollider" type="Area2D" parent="." unique_id=607904913]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCollider" unique_id=577115152]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_tuvci")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1551929033]
+modulate = Color(0.87058824, 0.61960787, 0.25490198, 1)
+position = Vector2(-7.1054274e-15, -0.99999994)
+scale = Vector2(1.25, 1.25)
+sprite_frames = SubResource("SpriteFrames_xso4u")
+autoplay = "default"
+frame_progress = 0.88886344
+
+[node name="SnapAtStart" parent="." unique_id=2118839275 instance=ExtResource("4_t1xhc")]
+
+[connection signal="body_entered" from="WallCollider" to="Wandering" method="change_direction"]
+[connection signal="area_entered" from="PlayerCollider" to="Enemy" method="_on_area_entered"]

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bcsqhk7h1ei71"]
+
+[ext_resource type="Script" uid="uid://bys41tc7n3qw" path="res://components/show_if/show_if.gd" id="1_rhcys"]
+
+[node name="ShowIf" type="Node" unique_id=1071189710]
+script = ExtResource("1_rhcys")

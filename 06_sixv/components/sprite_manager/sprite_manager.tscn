@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b6xkgau2sjm0x"]
+
+[ext_resource type="Script" uid="uid://nkxyv2j60bks" path="res://components/sprite_manager/sprite_manager.gd" id="1_wofxx"]
+
+[node name="SpriteManager" type="Node" unique_id=616463697]
+script = ExtResource("1_wofxx")

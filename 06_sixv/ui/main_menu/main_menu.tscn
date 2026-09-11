@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://ck58de0w5q31g"]
+
+[ext_resource type="Theme" uid="uid://dd3gjdierwy5m" path="res://ui/theme/theme.tres" id="1_mu8pm"]
+[ext_resource type="Script" uid="uid://cdeftny8i3lg8" path="res://ui/ui_events.gd" id="2_mu8pm"]
+
+[node name="MainMenu" type="Control" unique_id=981709838]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_mu8pm")
+
+[node name="Panel" type="Panel" parent="." unique_id=818322709]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=684145982]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1833614394]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "6V"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=2132977317]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Play"
+script = ExtResource("2_mu8pm")
+
+[connection signal="pressed" from="VBoxContainer/Button" to="VBoxContainer/Button" method="change_scene" binds= ["src/game"]]

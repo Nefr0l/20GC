@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://cuhyamsx3uyu1"]
+
+[ext_resource type="Script" uid="uid://dkw68h2ksa5xh" path="res://src/player/platformer_character.gd" id="1_mf2ua"]
+[ext_resource type="Texture2D" uid="uid://xq1xnrfki5o7" path="res://assets/player.png" id="2_244u8"]
+[ext_resource type="PackedScene" uid="uid://bx2i3gd4x30vu" path="res://components/invert_gravity/invert_gravity.tscn" id="3_244u8"]
+[ext_resource type="Texture2D" uid="uid://dfvmesjlv7xuh" path="res://assets/player_walking.png" id="3_jiejy"]
+[ext_resource type="PackedScene" uid="uid://rxxlcm4yuxdr" path="res://components/spy/spy.tscn" id="4_244u8"]
+[ext_resource type="PackedScene" uid="uid://b6xkgau2sjm0x" path="res://components/sprite_manager/sprite_manager.tscn" id="4_jiejy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o822w"]
+atlas = ExtResource("3_jiejy")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x42xx"]
+atlas = ExtResource("3_jiejy")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l271a"]
+atlas = ExtResource("3_jiejy")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ydov"]
+atlas = ExtResource("3_jiejy")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ylhto"]
+atlas = ExtResource("3_jiejy")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwolq"]
+atlas = ExtResource("3_jiejy")
+region = Rect2(80, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2smqc"]
+atlas = ExtResource("3_jiejy")
+region = Rect2(96, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rl62b"]
+atlas = ExtResource("3_jiejy")
+region = Rect2(112, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tuvci"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_244u8")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o822w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x42xx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l271a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ydov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ylhto")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cwolq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2smqc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rl62b")
+}],
+"loop": 1,
+"name": &"walking",
+"speed": 20.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tuvci"]
+size = Vector2(20, 39)
+
+[node name="Player" type="CharacterBody2D" unique_id=585203297]
+collision_mask = 31
+script = ExtResource("1_mf2ua")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=343995184]
+modulate = Color(1, 0.49019608, 1, 1)
+position = Vector2(4.7683716e-07, 4.7683716e-07)
+scale = Vector2(1.25, 1.25)
+sprite_frames = SubResource("SpriteFrames_tuvci")
+animation = &"walking"
+frame = 7
+frame_progress = 0.50378644
+
+[node name="SpriteManager" parent="Sprite2D" unique_id=616463697 instance=ExtResource("4_jiejy")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=181833988]
+shape = SubResource("RectangleShape2D_tuvci")
+
+[node name="InvertGravity" parent="." unique_id=27646710 instance=ExtResource("3_244u8")]
+
+[node name="Collider" type="Area2D" parent="." unique_id=1195648596]
+collision_mask = 62
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collider" unique_id=1536365688]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_tuvci")
+
+[node name="Spy" parent="." unique_id=102784424 instance=ExtResource("4_244u8")]
+var_to_spy = "position"
+var_to_send = "player_pos"
+
+[connection signal="change_direction" from="." to="Sprite2D/SpriteManager" method="flip_x"]
+[connection signal="start_moving" from="." to="Sprite2D/SpriteManager" method="play_animation" binds= ["walking"]]
+[connection signal="stop_moving" from="." to="Sprite2D/SpriteManager" method="play_animation"]
+[connection signal="gravity_flipped" from="InvertGravity" to="Sprite2D/SpriteManager" method="flip_y"]

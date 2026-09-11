@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://duyaiwm2mikqk"]
+
+[ext_resource type="Texture2D" uid="uid://2fd2lxoy1dss" path="res://assets/block_6x1.png" id="1_ra2am"]
+[ext_resource type="PackedScene" uid="uid://d1r4xfgc71s3w" path="res://components/object_moving/object_moving.tscn" id="2_ra2am"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tuvci"]
+size = Vector2(96, 17)
+
+[node name="MovingPlatform" type="AnimatableBody2D" unique_id=1309626742]
+collision_layer = 2
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1361389040]
+modulate = Color(0.30980393, 0.56078434, 0.7294118, 1)
+position = Vector2(-0.49999857, 0)
+texture = ExtResource("1_ra2am")
+
+[node name="Wandering" parent="." unique_id=515677914 instance=ExtResource("2_ra2am")]
+initial_direction = Vector2(1, 0)
+speed = 75.0
+
+[node name="Area2D" type="Area2D" parent="." unique_id=538238566]
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1553923275]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_tuvci")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=280079315]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_tuvci")
+
+[connection signal="body_entered" from="Area2D" to="Wandering" method="change_direction"]

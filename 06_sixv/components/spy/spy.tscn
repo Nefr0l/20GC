@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://rxxlcm4yuxdr"]
+
+[ext_resource type="Script" uid="uid://cjqx3eql0atl8" path="res://components/spy/spy.gd" id="1_y4t5o"]
+
+[node name="Spy" type="Node" unique_id=102784424]
+script = ExtResource("1_y4t5o")

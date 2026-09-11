@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dnxba7hea2v3i"]
+
+[ext_resource type="Script" uid="uid://cdilcbd635nr1" path="res://src/checkpoint/checkpoint.gd" id="1_lxxgr"]
+[ext_resource type="Texture2D" uid="uid://b3apoqyedm87y" path="res://assets/checkpoint_inactive.png" id="2_lxxgr"]
+[ext_resource type="Texture2D" uid="uid://choo7atp0nt3c" path="res://assets/checkpoint_active.png" id="2_x4lki"]
+[ext_resource type="PackedScene" uid="uid://b6xkgau2sjm0x" path="res://components/sprite_manager/sprite_manager.tscn" id="4_1y80a"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tuvci"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_x4lki")
+}],
+"loop": 1,
+"name": &"active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_lxxgr")
+}],
+"loop": 1,
+"name": &"inactive",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tuvci"]
+size = Vector2(16, 16)
+
+[node name="Checkpoint" type="Area2D" unique_id=1146719157]
+collision_layer = 16
+script = ExtResource("1_lxxgr")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=453296648]
+sprite_frames = SubResource("SpriteFrames_tuvci")
+animation = &"inactive"
+autoplay = "inactive"
+
+[node name="SpriteManager" parent="Sprite2D" unique_id=616463697 instance=ExtResource("4_1y80a")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=790376415]
+shape = SubResource("RectangleShape2D_tuvci")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="checkpoint_entered" from="." to="Sprite2D/SpriteManager" method="play_animation" binds= ["active"]]

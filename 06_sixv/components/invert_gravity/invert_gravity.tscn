@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bx2i3gd4x30vu"]
+
+[ext_resource type="Script" uid="uid://vpfgtwmglub6" path="res://components/invert_gravity/invert_gravity.gd" id="1_grpbo"]
+
+[node name="InvertGravity" type="Node" unique_id=27646710]
+script = ExtResource("1_grpbo")

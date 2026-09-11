@@ -1,0 +1,26 @@
+[gd_resource type="Theme" format=3 uid="uid://dd3gjdierwy5m"]
+
+[ext_resource type="FontFile" uid="uid://bdmhvheuby64w" path="res://ui/theme/Pizel.ttf" id="1_t6c4b"]
+[ext_resource type="StyleBox" uid="uid://dsi3ouv6wmc55" path="res://ui/theme/bg_primary.tres" id="2_q67kw"]
+[ext_resource type="StyleBox" uid="uid://boxl2isgmp0jw" path="res://ui/theme/bg_dark.tres" id="3_bipdn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q67kw"]
+bg_color = Color(0.63529414, 0.24313726, 0.54901963, 1)
+
+[resource]
+default_font = ExtResource("1_t6c4b")
+default_font_size = 32
+Button/colors/font_color = Color(0.92156863, 0.92941177, 0.9137255, 1)
+Button/colors/font_hover_color = Color(0.92156863, 0.92941177, 0.9137255, 1)
+Button/colors/font_hover_pressed_color = Color(0.92156863, 0.92941177, 0.9137255, 1)
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_t6c4b")
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = SubResource("StyleBoxFlat_q67kw")
+Button/styles/normal = ExtResource("2_q67kw")
+Button/styles/pressed = ExtResource("2_q67kw")
+Label/colors/font_color = Color(0.92156863, 0.92941177, 0.9137255, 1)
+Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("1_t6c4b")
+Panel/styles/panel = ExtResource("3_bipdn")
